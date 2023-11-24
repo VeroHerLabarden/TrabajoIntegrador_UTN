@@ -1,0 +1,26 @@
+@startuml
+class Cliente {
+ string RazonSocial;
+ int numCuit;
+ string serviciosContratados;
+ String Incidente;
+}
+
+class AreaComercial{
+void altaCliente;
+void bajaCliente;
+void modificarCliente;
+}
+
+AreaComercial "1" - "1" Cliente : tiene >
+Cliente "1" - "1" Tecnico
+Cliente "1" - "1" MesaDeAyuda : < usa
+Cliente "1" - "1" Incidente : tiene >
+RRHH "1" - "1" Tecnico : tiene >
+Tecnico "1" - "1" Especialidad : tiene >
+Tecnico "1" - "1"  Incidente : tiene >
+Tecnico "1" - "1" MesaDeAyuda : < usa
+MesaDeAyuda "1"- "1" Incidente : usa >
+Incidente "1" - "1"  Especialidad : usa >
+@enduml
+
